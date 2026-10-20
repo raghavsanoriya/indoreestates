@@ -45,3 +45,15 @@ Thumbs.db
 !/public/source/demoapus1.com/
 !/public/source/fonts.googleapis.com/
 !/public/source/fonts.gstatic.com/
+
+# Each option is source-only; production state is kept outside the repository.
+**/vendor/
+**/node_modules/
+**/bootstrap/cache/*
+!**/bootstrap/cache/.gitignore
+**/storage/**
+!**/storage/**/
+!**/storage/**/.gitignore
+/deploy/*.env
+/deploy/*.sqlite*
+/deploy/*.zip

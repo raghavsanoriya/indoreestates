@@ -1,0 +1,5 @@
+@extends('layouts.dashboard')
+@section('content')
+<p class="eyebrow green">ADMINISTRATION</p><h1>Contacts & subscribers</h1>
+<div class="dashboard-columns"><div class="panel"><h2>Contact messages</h2>@forelse($contacts as $contact)<article class="review"><strong>{{ $contact->name }}</strong><p class="muted small">{{ $contact->email }} · {{ $contact->phone }} · {{ $contact->created_at->format('d M Y') }}</p><p class="preserve-lines">{{ $contact->body }}</p>@if($contact->handled)<span class="status approved">Handled</span>@else<form method="post" action="{{ route('admin.handled',$contact) }}">@csrf @method('PATCH')<button class="button small outline">Mark handled</button></form>@endif</article>@empty<p>No contact messages yet.</p>@endforelse{{ $contacts->links() }}</div><div class="panel"><h2>Newsletter subscribers</h2>@forelse($subscribers as $subscriber)<p class="info-line">{{ $subscriber->email }}<br><span class="muted small">{{ $subscriber->created_at->format('d M Y') }}</span></p>@empty<p>No subscribers yet.</p>@endforelse{{ $subscribers->links() }}</div></div>
+@endsection

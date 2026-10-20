@@ -4,7 +4,7 @@
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-f916bae elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="f916bae" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="104" height="118" src="/source/demoapus1.com/homez/wp-content/uploads/2022/11/h44.png" class="attachment-full size-full wp-image-704" alt="">															</div>
+															<img loading="lazy" decoding="async" width="104" height="118" src="{{ asset('source/demoapus1.com/homez/wp-content/uploads/2022/11/h44.png') }}" class="attachment-full size-full wp-image-704" alt="">															</div>
 				</div>
 				<section class="elementor-section elementor-inner-section elementor-element elementor-element-7bfcb84 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7bfcb84" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-extended">
@@ -37,7 +37,7 @@
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-e1eb01c  elementor-widget elementor-widget-image" data-id="e1eb01c" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="444" height="511" src="/source/demoapus1.com/homez/wp-content/uploads/2022/11/h43.png" class="attachment-full size-full wp-image-691" alt="">															</div>
+															<img loading="lazy" decoding="async" width="444" height="511" src="{{ asset('source/demoapus1.com/homez/wp-content/uploads/2022/11/h43.png') }}" class="attachment-full size-full wp-image-691" alt="">															</div>
 				</div>
 					</div>
 		</div>

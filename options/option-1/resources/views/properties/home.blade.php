@@ -1,0 +1,38 @@
+@extends('layouts.app')
+@section('content')
+<div class="original-home">
+<section class="flat-slider home-1"><div class="overlay"></div><div class="container relative"><div class="row"><div class="col-lg-12"><div class="slider-content">
+<div class="heading text-center"><h1 class="title-large text-white">Find Your <span>Dream Home</span></h1><p class="subtitle text-white body-2">Explore properties and developer projects in Indore. Find your next address and contact us for details.</p></div>
+<div class="flat-tab flat-tab-form"><ul class="nav-tab-form style-1 justify-content-center" role="tablist"><li class="nav-tab-item"><button type="button" class="nav-link-item active" data-home-purpose="rent" role="tab" aria-selected="true">For Rent</button></li><li class="nav-tab-item"><button type="button" class="nav-link-item" data-home-purpose="sale" role="tab" aria-selected="false">For Sale</button></li></ul>
+<div class="tab-content"><div class="tab-pane fade active show"><div class="form-sl"><form method="get" action="{{ route('properties.index') }}"><input id="home-purpose" type="hidden" name="purpose" value="rent">
+<div class="wd-find-select"><div class="inner-group">
+<div class="form-group-1 search-form form-style"><label for="home-type">Type</label><select id="home-type" name="type"><option value="">All</option>@foreach(['Villa','Studio','Office','House','Apartment','Land'] as $type)<option>{{ $type }}</option>@endforeach</select></div>
+<div class="form-group-2 form-style"><label for="home-location">Location</label><div class="group-ip"><input id="home-location" name="location" placeholder="Search Location"><span class="icon icon-location"></span></div></div>
+<div class="form-group-3 form-style"><label for="home-keyword">Keyword</label><input id="home-keyword" name="keyword" placeholder="Search Keyword."></div></div>
+<div class="box-btn-advanced"><div class="form-group-4 box-filter"><button type="button" class="tf-btn btn-line filter-advanced pull-right" aria-expanded="false" aria-controls="home-advanced" data-home-advanced><span class="text-1">Search advanced</span><span class="icon icon-filter"></span></button></div><button type="submit" class="tf-btn btn-search primary">Search <i class="icon icon-search"></i></button></div></div>
+<div id="home-advanced" class="home-advanced-fields" hidden><div class="field-grid"><label>Min price (₹)<input type="number" name="min_price" min="0"></label><label>Max price (₹)<input type="number" name="max_price" min="0"></label><label>Min bedrooms<input type="number" name="bedrooms" min="0"></label><label>Min bathrooms<input type="number" name="bathrooms" min="0"></label><label>Min area (sqft)<input type="number" name="min_area" min="0"></label><label>Max area (sqft)<input type="number" name="max_area" min="0"></label></div></div>
+</form></div></div></div></div>
+</div></div></div></div></section>
+
+<section class="flat-section flat-recommended"><div class="container"><div class="box-title text-center"><div class="text-subtitle text-primary">Featured Properties</div><h3 class="mt-4 title">Recommended For You</h3></div>
+<div class="flat-tab-recommended flat-animate-tab"><ul class="nav-tab-recommended justify-content-md-center"><li class="nav-tab-item"><a href="{{ route('home') }}" @class(['nav-link-item','active'=>!request('type')])>View All</a></li>@foreach(['Apartment','Villa','Studio','House','Office'] as $type)<li class="nav-tab-item"><a href="{{ route('home',['type'=>$type]) }}" @class(['nav-link-item','active'=>request('type')===$type])>{{ $type }}</a></li>@endforeach</ul>
+<div class="tab-content"><div class="tab-pane active show"><div class="row">@forelse($properties as $property)<div class="col-xl-4 col-lg-6 col-md-6"><x-original-property-card :property="$property"/></div>@empty<div class="empty-state">No available properties in this category yet.</div>@endforelse</div><div class="text-center"><a class="tf-btn btn-view primary size-1" href="{{ route('properties.index') }}">View All Properties<span class="icon icon-arrow-right2"></span></a></div></div></div></div></div></section>
+
+<section class="flat-location px-10"><div class="box-title text-center"><div class="text-subtitle text-primary">Explore Indore</div><h3 class="mt-4 title">Properties In Indore</h3></div><div class="original-location-strip">@foreach($locations as $location)<a class="box-location" href="{{ route('properties.index',['location'=>$location->location]) }}"><div class="image img-style"><img src="{{ $locationCover }}" alt="{{ $location->location }}" loading="lazy"></div><div class="content"><div class="inner-left"><span class="sub-title fw-6">{{ $location->total }} Properties</span><h6 class="title text-line-clamp-1 link">{{ $location->location }}</h6></div><span class="box-icon line w-44 round"><i class="icon icon-arrow-right2"></i></span></div></a>@endforeach</div></section>
+
+@include('partials.home-services')
+@include('partials.home-benefits')
+
+<section class="flat-section"><div class="container"><div class="box-title text-center"><div class="text-subtitle text-primary">Top Properties</div><h3 class="title mt-4">Best Property Value</h3></div><div class="row">@foreach($bestProperties as $property)<div class="col-xl-4 col-lg-6 col-md-6"><x-original-property-card :property="$property"/></div>@endforeach</div><div class="text-center"><a class="tf-btn btn-view primary size-1" href="{{ route('properties.index',['sort'=>'price_asc']) }}">View All Properties<span class="icon icon-arrow-right2"></span></a></div></div></section>
+
+@if($reviews->isNotEmpty())
+<section class="flat-section bg-primary-new flat-testimonial"><div class="box-title px-15 text-center"><div class="text-subtitle text-primary">Our Testimonials</div><h3 class="title mt-4">What Our Customers Say</h3><p class="desc text-variant-1">Experiences shared by our customers.</p></div><div class="container"><div class="original-testimonial-strip">@forelse($reviews as $review)<div class="box-tes-item"><span class="icon icon-quote"></span><p class="note body-2">“{{ $review->body }}”</p><div class="box-avt d-flex align-items-center gap-12"><div class="avatar avt-34 round"><img src="{{ $review->author->avatar_path ? route('media.avatar',$review->author) : asset('branding/avatar-placeholder.svg') }}" alt="" width="34" height="34"></div><div class="info"><h6>{{ $review->author->name }}</h6><p class="caption-2 text-variant-1 mt-4">Customer</p><span class="rating">{{ str_repeat('★',$review->rating) }}</span></div></div></div>@empty<p class="text-center text-variant-1">Customer experiences will appear here once reviews are approved.</p>@endforelse</div></div></section>
+
+@endif
+
+@if($agents->isNotEmpty())
+<section class="flat-section flat-agents"><div class="container"><div class="box-title text-center"><div class="text-subtitle text-primary">Our Teams</div><h3 class="title mt-4">Meet Our Agents</h3></div><div class="row">@forelse($agents as $agent)<div class="col-xl-3 col-md-6"><div class="box-agent hover-img"><a href="{{ route('contact') }}" class="box-img img-style"><img src="{{ $agent->avatar_path ? route('media.avatar',$agent) : asset('branding/avatar-placeholder.svg') }}" alt="{{ $agent->name }}" loading="lazy"></a><div class="content"><div class="info"><h5><a class="link" href="{{ route('contact') }}">{{ $agent->name }}</a></h5><p class="text-variant-1">{{ $agent->company ?: 'Property Agent' }}</p></div><a href="{{ route('conversations.index') }}" class="box-icon" aria-label="Open messages"><span class="icon icon-mail"></span></a></div></div></div>@empty<p class="text-center">Our agent team is growing.</p>@endforelse</div></div></section>
+
+@endif
+</div>
+@endsection

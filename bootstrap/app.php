@@ -5,6 +5,12 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
 
+$sharedEnvironmentPath = dirname(__DIR__, 2).'/shared';
+
+if (is_file($sharedEnvironmentPath.'/.env')) {
+    Dotenv\Dotenv::createImmutable($sharedEnvironmentPath)->safeLoad();
+}
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',

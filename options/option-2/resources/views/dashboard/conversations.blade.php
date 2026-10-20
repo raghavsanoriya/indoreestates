@@ -1,0 +1,4 @@
+@extends('layouts.dashboard')
+@section('dashboard-content')
+<div class="card"><div class="card-header"><h5 class="mb-0">Messages</h5></div><div class="card-body">@forelse($conversations as $conversation)<article class="notication-item mb-3"><div class="d-flex align-items-center justify-content-between gap-3"><div><h6><a href="{{ route('conversations.show',$conversation) }}">{{ $conversation->property->title }}</a></h6><p class="fs-14">{{ $conversation->customer->name }} ↔ {{ $conversation->agent->name }}</p><p class="mb-0">{{ Str::limit($conversation->messages->first()?->body ?? 'Open your conversation to reply.',200) }}</p></div>@if($conversation->unread_count)<span class="badge bg-primary">{{ $conversation->unread_count }} unread</span>@endif</div></article>@empty<p>No inquiries yet.</p>@endforelse{{ $conversations->links() }}</div></div>
+@endsection

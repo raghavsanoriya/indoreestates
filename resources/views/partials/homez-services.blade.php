@@ -56,7 +56,7 @@
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-386710a  elementor-widget elementor-widget-image" data-id="386710a" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" decoding="async" width="685" height="720" src="/source/demoapus1.com/homez/wp-content/uploads/2022/11/h41.jpg" class="attachment-full size-full wp-image-626" alt="">															</div>
+															<img loading="lazy" decoding="async" width="685" height="720" src="{{ asset('source/demoapus1.com/homez/wp-content/uploads/2022/11/h41.jpg') }}" class="attachment-full size-full wp-image-626" alt="">															</div>
 				</div>
 					</div>
 		</div>

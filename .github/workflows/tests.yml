@@ -13,6 +13,13 @@ jobs:
   php:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        directory: ['.', 'options/option-1', 'options/option-2']
+    defaults:
+      run:
+        working-directory: ${{ matrix.directory }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -20,7 +27,7 @@ jobs:
       - uses: shivammathur/setup-php@d52fc211a0436f8839a587b3b5b8efddab4744ea # v2
         with:
           php-version: '8.3'
-          extensions: curl, dom, fileinfo, intl, mbstring, pdo_sqlite, sqlite3, xml, zip
+          extensions: curl, dom, fileinfo, intl, mbstring, pdo_mysql, pdo_sqlite, sqlite3, xml, zip
           coverage: none
           tools: composer:v2
       - name: Install locked PHP dependencies without install scripts
@@ -34,6 +41,8 @@ jobs:
         run: composer audit --locked --no-interaction
       - name: Run isolated test suite
         run: php artisan test --compact
+      - name: Verify MySQL configuration on PHP 8.3
+        run: DB_CONNECTION=mysql php artisan config:show database.default
 
   javascript:
     runs-on: ubuntu-24.04
@@ -54,3 +63,6 @@ jobs:
           node --check public/js/app.js
           node --check public/js/homez.js
           node --check public/js/dashboard.js
+          node --check options/option-1/public/js/estate.js
+          node --check options/option-2/public/js/app.js
+          bash -n deploy/cpanel.sh

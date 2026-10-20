@@ -1,0 +1,2 @@
+@if(session('status'))<div class="container mt-3"><div class="alert alert-success" role="status">{{ session('status') }}</div></div>@endif
+@if($errors->any())<div class="container mt-3"><div class="alert alert-danger" role="alert"><p>Please check the following:</p><ul class="mb-0">@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul><p class="mb-0 mt-2">Your details are preserved. Please reselect any new files.</p></div></div>@endif

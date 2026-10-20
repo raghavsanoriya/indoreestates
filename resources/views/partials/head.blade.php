@@ -5,13 +5,13 @@
 <title>@yield('title','indoreestate · Properties in Indore')</title>
 <link rel="icon" href="{{ asset('branding/favicon.svg') }}">
 <link rel="preload" href="{{ asset('icons/material-icon-outlined.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/source/fonts.googleapis.com/css793e.css">
-<link rel="stylesheet" href="/source/demoapus1.com/homez/wp-content/themes/homez/css/bootstrap55a0.css">
-<link rel="stylesheet" href="/source/demoapus1.com/homez/wp-content/plugins/elementor/assets/css/frontend-lite.mina5bd.css">
-<link rel="stylesheet" href="/source/demoapus1.com/homez/wp-content/uploads/elementor/css/post-60fe0.css">
-<link rel="stylesheet" href="/source/demoapus1.com/homez/wp-content/themes/homez/css/template5152.css">
-<link rel="stylesheet" href="/source/demoapus1.com/homez/wp-content/themes/homez/style5152.css">
-<link rel="stylesheet" href="/source/demoapus1.com/homez/wp-content/uploads/elementor/css/post-19c8bb.css">
+<link rel="stylesheet" href="{{ asset('source/fonts.googleapis.com/css793e.css') }}">
+<link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/themes/homez/css/bootstrap55a0.css') }}">
+<link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/plugins/elementor/assets/css/frontend-lite.mina5bd.css') }}">
+<link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/uploads/elementor/css/post-60fe0.css') }}">
+<link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/themes/homez/css/template5152.css') }}">
+<link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/themes/homez/style5152.css') }}">
+<link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/uploads/elementor/css/post-19c8bb.css') }}">
 <link rel="stylesheet" href="{{ asset('css/homez-original.css') }}">
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <link rel="stylesheet" href="{{ asset('css/homez.css') }}">

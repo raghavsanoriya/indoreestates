@@ -1,0 +1,8 @@
+@extends('layouts.dashboard')
+@section('content')
+<div class="widget-box-2 wd-listing"><h5 class="title">My Favorites</h5>
+<div class="wrap-table"><div class="table-responsive"><table><thead><tr><th>Listing</th><th>Status</th><th>Action</th></tr></thead><tbody>
+@forelse($properties as $property)<tr><td><div class="listing-box"><div class="images"><img src="{{ $property->coverUrl() }}" alt="{{ $property->title }}" width="615" height="405" loading="lazy"></div><div class="content"><div class="title"><a class="link" href="{{ route('properties.show',$property) }}">{{ $property->title }}</a></div><div class="text-date">{{ $property->address }}</div><div class="text-btn text-primary">{{ $property->priceLabel() }}</div>@if($property->price === null)<a href="{{ route('contact',['property'=>$property->id]) }}">Contact us</a>@endif</div></div></td><td><div class="status-wrap"><span class="btn-status published">Published</span><span class="status-note">{{ $property->source_key ? 'Confirm unit availability' : ucfirst($property->availability) }}</span></div></td><td><ul class="list-action"><li><a class="item" href="{{ route('properties.show',$property) }}">View property ↗</a></li><li><form method="post" action="{{ route('favorites.destroy',$property) }}">@csrf @method('DELETE')<button class="item">Remove favorite</button></form></li></ul></td></tr>
+@empty<tr><td colspan="3"><div class="dashboard-empty"><p>No saved properties yet.</p><a href="{{ route('properties.index') }}">Find your next home →</a></div></td></tr>@endforelse
+</tbody></table></div><div class="pagination-wrap">{{ $properties->links() }}</div></div></div>
+@endsection

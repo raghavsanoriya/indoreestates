@@ -1,6 +1,6 @@
 # indoreestate
 
-Indore-only real estate website and dashboard built with Laravel 13, PHP 8.3+ and SQLite. This repository contains **Option 3**, using the supplied Homez design and indoreestate branding.
+Indore-only real estate websites and dashboards built with Laravel 13 and PHP 8.3+. Option 3 (Homez) remains at the repository root. Option 1 and Option 2 are in `options/option-1` and `options/option-2`. Each retains its own design. Local previews use SQLite; production uses one shared, isolated MySQL database.
 
 ## Features
 
@@ -69,6 +69,16 @@ PHPUnit uses an isolated in-memory SQLite database, not the local site's databas
 
 Copy `.env.example` and configure your own application key, database and mail settings. Email is logged locally by default; SMTP is not configured. Paid subscriptions and checkout are not active.
 
-Before deployment, use HTTPS, set `APP_ENV=production`, `APP_DEBUG=false`, configure secure cookies and SMTP, and point the web server at `public`. This repository setup does not deploy or expose the local application.
+Before deployment, use HTTPS, set `APP_ENV=production`, `APP_DEBUG=false`, configure secure cookies and SMTP, and point the web server at `public`. Pushing a commit to GitHub does not by itself publish the websites.
+
+## cPanel deployment — real-estate subdomain only
+
+The checked-in `.cpanel.yml` invokes `deploy/cpanel.sh`. Its paths are restricted to `/home2/geicic3c/indore-estates.geic.in` and `/home2/geicic3c/indore-estates-apps`; it never targets the main domain's `public_html` or database. Create the cPanel-managed repository at `/home2/geicic3c/repositories/indoreestates` and configure a read-only GitHub deploy key for this repository only.
+
+Before the first deployment, create the private `/home2/geicic3c/indore-estates-apps/shared/.env` from `deploy/shared.env.example`, configure a strong application key and the dedicated database credentials, and import Option 3's existing records and private media. Do not put real credentials, database backups, or media in Git. After verifying that import, create the private `shared/.master-import-complete` marker. The deploy task refuses to publish until those prerequisites exist.
+
+The deployment installs locked production PHP dependencies with scripts/plugins disabled, builds three private releases, runs only pending additive migrations, and exposes only each release's `public` folder. It preserves previous releases and shared data; no reset, fresh migration, or seeding runs. The host must support public-folder symlinks and PHP 8.3 with MySQL, SQLite (for the initial import), and the extensions listed above. Persistent framework storage is separate for each option; photos and database records are shared.
+
+Use cPanel **Update from Remote**, then **Deploy HEAD Commit** after green GitHub checks. This is a GitHub-backed manual deployment, not an automatic push-to-live workflow. Expected URLs are `/option-1/`, `/option-2/`, `/option-3/`, with each CRM at its own `/dashboard`. Only the subdomain root receives the option selector.
 
 The source repository includes application code and the template assets used by the UI. Supplied Homez assets, fonts, images and the user-provided illustration retain their respective owners' licenses; their inclusion does not grant new redistribution rights. Unused captured third-party scripts and local website snapshots are excluded.

@@ -22,11 +22,11 @@ Perfect Property</h1>		</div>
 								<div class="elementor-element elementor-element-c2c8dda elementor-widget__width-auto  elementor-widget elementor-widget-apus_element_popup_video" data-id="c2c8dda" data-element_type="widget" data-widget_type="apus_element_popup_video.default"><div class="elementor-widget-container"><div class="widget-video"><div class="video-wrapper-inner"><a class="d-flex align-items-center style2 o3-hero-explore" href="{{ route('properties.index') }}"><h2 class="title-video">Explore Properties</h2><span class="popup-video-inner d-flex align-items-center justify-content-center"><i class="flaticon-up-right-arrow" aria-hidden="true"></i></span></a></div></div></div></div>
 				<div class="elementor-element elementor-element-d055504 elementor-widget__width-auto elementor-absolute elementor-hidden-mobile  elementor-widget elementor-widget-image" data-id="d055504" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img decoding="async" width="140" height="120" src="/source/demoapus1.com/homez/wp-content/uploads/2022/11/round-text.png" class="attachment-full size-full wp-image-606" alt="">															</div>
+															<img decoding="async" width="140" height="120" src="{{ asset('source/demoapus1.com/homez/wp-content/uploads/2022/11/round-text.png') }}" class="attachment-full size-full wp-image-606" alt="">															</div>
 				</div>
 				<div class="elementor-element elementor-element-047b0b9 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-mobile  elementor-widget elementor-widget-image" data-id="047b0b9" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img decoding="async" width="160" height="103" src="/source/demoapus1.com/homez/wp-content/uploads/2022/11/h45.png" class="attachment-full size-full wp-image-613" alt="">															</div>
+															<img decoding="async" width="160" height="103" src="{{ asset('source/demoapus1.com/homez/wp-content/uploads/2022/11/h45.png') }}" class="attachment-full size-full wp-image-613" alt="">															</div>
 				</div>
 					</div>
 		</div>

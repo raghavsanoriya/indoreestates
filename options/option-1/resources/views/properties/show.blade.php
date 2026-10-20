@@ -1,0 +1,32 @@
+@extends($preview ? 'layouts.dashboard' : 'layouts.app')
+@section('content')
+<div class="container-wide section">
+@if($preview)<div class="notice">Private preview · {{ ucfirst($property->status) }} · {{ ucfirst($property->availability) }}@if($property->rejection_reason)<p>{{ $property->rejection_reason }}</p>@endif</div>@endif
+<div class="detail-heading"><div><p class="eyebrow green">{{ $property->type }} · For {{ $property->purpose }} @if($property->source_key) · Developer project @endif</p><h1>{{ $property->title }}</h1><p class="muted">⌖ {{ $property->address }}, {{ $property->location }}</p></div><div><h2>{{ $property->priceLabel() }}</h2>@if($property->price === null)<a class="button" href="{{ route('contact', ['property'=>$property->id]) }}">Contact us</a>@endif<p class="muted">{{ $property->reference }}</p></div></div>
+<div class="detail-gallery">@forelse($property->photos as $photo)<button type="button" data-gallery-src="{{ $photo->url() }}" aria-label="Enlarge property photo"><img src="{{ $photo->url() }}" alt="{{ $property->title }} photo {{ $loop->iteration }}" @if(!$loop->first) loading="lazy" @endif></button>@empty<div class="empty-state">No photos yet</div>@endforelse</div>
+<div class="detail-layout"><div>
+@include('properties.import-source', ['property'=>$property])
+<div class="panel"><h2>About this property</h2><div class="detail-features">@if($property->bedrooms !== null)<span>{{ $property->bedrooms }} bedrooms</span>@endif @if($property->bathrooms !== null)<span>{{ $property->bathrooms }} bathrooms</span>@endif @if($property->area !== null)<span>{{ number_format((float)$property->area) }} sqft</span>@endif @if($property->garages !== null)<span>{{ $property->garages }} garages</span>@endif</div><p class="preserve-lines">{{ $property->description }}</p></div>
+<div class="panel"><h2>Property details</h2><dl class="detail-grid">@foreach(['type'=>'Property type','purpose'=>'Purpose','rooms'=>'Rooms','bedrooms'=>'Bedrooms','bathrooms'=>'Bathrooms','area'=>'Built-up area (sqft)','land_area'=>'Land area (sqft)','garages'=>'Garages','garage_area'=>'Garage area (sqft)','year_built'=>'Year built','availability'=>'Availability','neighborhood'=>'Neighborhood','state'=>'State','country'=>'Country','zip_code'=>'Postal code'] as $field=>$label)@if($property->$field!==null)<div><dt>{{ $label }}</dt><dd>{{ $field==='availability' && $property->source_key ? 'Confirm with developer' : ucfirst((string)$property->$field) }}</dd></div>@endif @endforeach</dl></div>
+<div class="panel"><h2>Amenities</h2><div class="amenity-list">@forelse($property->amenities as $amenity)<span>✓ {{ $amenity->name }}</span>@empty<p class="muted">No amenities listed.</p>@endforelse</div></div>
+<div class="panel"><h2>Location</h2><p>{{ $property->address }}, {{ $property->location }}, {{ $property->state }}</p><a class="button outline" target="_blank" rel="noopener" href="https://www.openstreetmap.org/search?query={{ rawurlencode($property->latitude && $property->longitude ? $property->latitude.','.$property->longitude : $property->address.' '.$property->location) }}">Open location map ↗</a></div>
+@include('properties.presentation',['property'=>$property])
+<div class="panel"><h2>Reviews <span class="muted small">{{ $property->reviews->count() }} approved · {{ number_format((float)$property->reviews->avg('rating'),1) }}/5</span></h2>
+@forelse($property->reviews as $review)<article class="review"><strong>{{ $review->author->name }}</strong><span class="rating">{{ str_repeat('★',$review->rating) }}</span><p class="preserve-lines">{{ $review->body }}</p></article>@empty<p class="muted">Be the first to review this property.</p>@endforelse
+@if(!$preview)
+@auth @if(auth()->id()!==$property->user_id)<form method="post" action="{{ route('reviews.store',$property) }}" class="stack-form">@csrf<h3>{{ $ownReview ? 'Update your review' : 'Write a review' }}</h3>@if($ownReview)<p class="muted">Your review status: {{ $ownReview->status }}. Edits are submitted for approval.</p>@endif<label>Rating<select name="rating" required>@for($i=5;$i>=1;$i--)<option value="{{ $i }}" @selected(old('rating',$ownReview?->rating)==$i)>{{ $i }} stars</option>@endfor</select></label><label>Your review<textarea name="body" maxlength="3000" required>{{ old('body',$ownReview?->body) }}</textarea></label><button class="button">Submit review for approval</button></form>@endif
+@else<p><a href="{{ route('login') }}">Sign in</a> to leave a review.</p>@endauth
+@endif
+</div></div>
+<aside><div class="panel agent-panel"><div class="agent-heading">@if($property->source_key)<img class="avatar" src="{{ asset('branding/indoreestate-mark.svg') }}" alt=""><div><h3>indoreestate</h3><p class="muted">Property enquiries</p></div>@else<img class="avatar" src="{{ $property->owner->avatar_path ? route('media.avatar',$property->owner) : asset('branding/avatar-placeholder.svg') }}" alt=""><div><h3>{{ $property->owner->name }}</h3><p class="muted">{{ $property->owner->company ?: 'Property agent' }}</p></div>@endif</div>
+@if(!$preview)
+@auth
+<form method="post" action="{{ $saved ? route('favorites.destroy',$property) : route('favorites.store',$property) }}">@csrf @if($saved)@method('DELETE')@endif<button class="button outline full">{{ $saved ? '♥ Remove favorite' : '♡ Save to favorites' }}</button></form>
+@if(auth()->id()!==$property->user_id)<form method="post" action="{{ route('inquiries.store',$property) }}" class="stack-form inquiry">@csrf<h3>Interested in this home?</h3><label>Message the agent<textarea name="body" maxlength="5000" required placeholder="I’d like to know more about this property."></textarea></label><button class="button">Send inquiry ↗</button><p class="muted small">Your conversation stays private in your dashboard.</p></form>@endif
+@else<a class="button full" href="{{ route('login') }}">Sign in to contact agent</a><p class="muted">Create an account to save homes and send private inquiries.</p>@endauth
+@else<p class="muted">Inquiries and reviews become available once the listing is approved and available.</p>@endif</div></aside>
+</div>
+@if($related->isNotEmpty())<section class="section"><div class="section-heading"><h2>Similar properties</h2></div><div class="property-grid">@foreach($related as $property)<x-property-card :property="$property"/>@endforeach</div></section>@endif
+</div>
+<dialog id="gallery-dialog"><button type="button" class="gallery-close" aria-label="Close photo">×</button><img alt="Enlarged property photo"></dialog>
+@endsection
