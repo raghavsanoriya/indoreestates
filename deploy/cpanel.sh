@@ -17,8 +17,8 @@ if [[ ! -x "$PHP_BIN" || ! -d "$WEB_ROOT" || -L "$WEB_ROOT" ]]; then
     echo 'Expected PHP 8.3 or isolated domain document root is missing.' >&2
     exit 1
 fi
-if [[ ! -s "$SHARED_ROOT/.env" || ! -f "$SHARED_ROOT/.master-import-complete" ]]; then
-    echo 'Configure private shared/.env and complete the Option 3 master import before publishing.' >&2
+if [[ ! -s "$SHARED_ROOT/.env" ]]; then
+    echo 'Configure private shared/.env before publishing.' >&2
     exit 1
 fi
 if [[ -L "$PRIVATE_ROOT" || -L "$SHARED_ROOT" ]]; then
@@ -38,8 +38,11 @@ fi
 readonly RELEASE_ID="$(date -u +%Y%m%dT%H%M%SZ)-$(git rev-parse --short=12 HEAD)"
 readonly RELEASE_ROOT="$PRIVATE_ROOT/releases/$RELEASE_ID"
 mkdir -p "$RELEASE_ROOT" "$SHARED_ROOT/media/private" "$SHARED_ROOT/media/public"
+chmod 711 "$PRIVATE_ROOT" "$PRIVATE_ROOT/releases" "$RELEASE_ROOT"
+chmod 700 "$SHARED_ROOT"
 chmod 600 "$SHARED_ROOT/.env"
 ln -s "$SHARED_ROOT" "$RELEASE_ROOT/shared"
+"$PHP_BIN" -r '$file = $argv[1]; $text = file_get_contents($file); if (preg_match("/^APP_KEY=\s*$/m", $text)) { $text = preg_replace("/^APP_KEY=\s*$/m", "APP_KEY=base64:".base64_encode(random_bytes(32)), $text, 1); file_put_contents($file, $text, LOCK_EX); }' "$SHARED_ROOT/.env"
 
 for OPTION in option-1 option-2 option-3; do
     APP_SOURCE="$SOURCE_ROOT/options/$OPTION"
@@ -48,6 +51,7 @@ for OPTION in option-1 option-2 option-3; do
     fi
     APP_TARGET="$RELEASE_ROOT/$OPTION"
     mkdir "$APP_TARGET"
+    chmod 711 "$APP_TARGET"
     for SOURCE_DIRECTORY in app bootstrap config database resources routes public; do
         mkdir -p "$APP_TARGET/$SOURCE_DIRECTORY"
         if [[ "$SOURCE_DIRECTORY" == database ]]; then
@@ -80,6 +84,11 @@ done
 
 # Only additive pending migrations run; never reset or reseed production data.
 (cd "$RELEASE_ROOT/option-3" && "$PHP_BIN" artisan migrate --force --no-interaction)
+
+if [[ ! -f "$SHARED_ROOT/.master-import-complete" ]]; then
+    (cd "$RELEASE_ROOT/option-3" && "$PHP_BIN" artisan estate:master-snapshot import "$SHARED_ROOT/master.json" --no-interaction)
+    (cd "$RELEASE_ROOT/option-3" && "$PHP_BIN" artisan estate:master-snapshot verify "$SHARED_ROOT/master.json" --no-interaction)
+fi
 
 for OPTION in option-1 option-2 option-3; do
     PUBLIC_TARGET="$WEB_ROOT/$OPTION"
