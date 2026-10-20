@@ -110,4 +110,5 @@ for OPTION in option-1 option-2 option-3; do
     mv -Tf "$WEB_ROOT/.$OPTION-$RELEASE_ID" "$WEB_ROOT/$OPTION"
 done
 cp "$SOURCE_ROOT/deploy/landing.html" "$WEB_ROOT/index.html"
+chmod 644 "$WEB_ROOT/index.html"
 echo "Published $RELEASE_ID to indore-estates.geic.in only. Previous releases and shared data were preserved."
