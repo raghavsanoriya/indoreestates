@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Noto Sans Telugu UI';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts.gstatic.com/s/notosansteluguui/v14/RWmUoL2Y6-8q5LTtXs6MEKCu3MZ3LDQiKlc.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Telugu UI';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts.gstatic.com/s/notosansteluguui/v14/RWmZoL2Y6-8q5LTtXs6MEKCu3MZ3LDQiEuuRCnY.ttf) format('truetype');
+}

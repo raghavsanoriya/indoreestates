@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Noto Sans Tamil UI';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosanstamilui/v41/HTxLL3AyKieByqY9eZPF2Oe8cOeFrl_J1HkeVDi4ba9Mx1B6xV8JSQRLdfsDFJ3N7u3S.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Tamil UI';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosanstamilui/v41/HTxLL3AyKieByqY9eZPF2Oe8cOeFrl_J1HkeVDi4ba9Mx1B6xV8JSQRLdfsDFJ2T7u3S.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Tamil UI';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosanstamilui/v41/HTxLL3AyKieByqY9eZPF2Oe8cOeFrl_J1HkeVDi4ba9Mx1B6xV8JSQRLdfsDFJ2h7u3S.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Tamil UI';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosanstamilui/v41/HTxLL3AyKieByqY9eZPF2Oe8cOeFrl_J1HkeVDi4ba9Mx1B6xV8JSQRLdfsDFJ106e3S.ttf) format('truetype');
+}

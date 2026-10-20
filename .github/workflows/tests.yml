@@ -1,0 +1,56 @@
+name: Tests and dependency checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  php:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: shivammathur/setup-php@d52fc211a0436f8839a587b3b5b8efddab4744ea # v2
+        with:
+          php-version: '8.3'
+          extensions: curl, dom, fileinfo, intl, mbstring, pdo_sqlite, sqlite3, xml, zip
+          coverage: none
+          tools: composer:v2
+      - name: Install locked PHP dependencies without install scripts
+        run: composer install --prefer-dist --no-interaction --no-progress --no-scripts --no-plugins
+      - name: Prepare isolated application environment
+        run: |
+          cp .env.example .env
+          php artisan package:discover
+          php artisan key:generate
+      - name: Audit locked PHP dependencies
+        run: composer audit --locked --no-interaction
+      - name: Run isolated test suite
+        run: php artisan test --compact
+
+  javascript:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Use the repository's npm version
+        run: npm install --global npm@11.17.0 --ignore-scripts
+      - name: Audit locked JavaScript dependencies
+        run: npm audit --audit-level=high
+      - name: Check application scripts
+        run: |
+          node --check public/js/app.js
+          node --check public/js/homez.js
+          node --check public/js/dashboard.js

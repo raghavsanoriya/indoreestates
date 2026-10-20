@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Noto Sans Gurmukhi UI';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansgurmukhiui/v40/XRXs3J2LkVdHfru5XLWkIb6_HE9sZBpCMHotgY43vflLfNn4CZRp6HqMJvNVteRPSOsEMPjk.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Gurmukhi UI';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansgurmukhiui/v40/XRXs3J2LkVdHfru5XLWkIb6_HE9sZBpCMHotgY43vflLfNn4CZRp6HqMJvNVteRPSOtaMPjk.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Gurmukhi UI';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansgurmukhiui/v40/XRXs3J2LkVdHfru5XLWkIb6_HE9sZBpCMHotgY43vflLfNn4CZRp6HqMJvNVteRPSOtoMPjk.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Gurmukhi UI';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansgurmukhiui/v40/XRXs3J2LkVdHfru5XLWkIb6_HE9sZBpCMHotgY43vflLfNn4CZRp6HqMJvNVteRPSOu9N_jk.ttf) format('truetype');
+}

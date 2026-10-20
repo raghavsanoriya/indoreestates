@@ -1,0 +1,2 @@
+<!doctype html>
+<html lang="en"><head>@include('partials.head')</head><body class="o3-auth"><main class="container o3-auth-container"><a href="{{ route('home') }}" class="o3-auth-logo"><img src="{{ asset('branding/indoreestate-logo.svg') }}" alt="indoreestate" width="218" height="44"></a>@include('partials.notices')<div class="card o3-auth-card"><div class="card-body">@yield('content')</div></div><p class="text-center mt-4"><a href="{{ route('home') }}">← Back to website</a></p></main>@include('partials.scripts')</body></html>

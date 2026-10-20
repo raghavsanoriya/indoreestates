@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Noto Sans Gujarati UI';
+  font-style: normal;
+  font-weight: 300;
+  src: url(../fonts.gstatic.com/s/notosansgujaratiui/v27/y83IW5AQ0Q-Xx3edxI4sY0SreQ2LeJlhvh_rVglWpQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Gujarati UI';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts.gstatic.com/s/notosansgujaratiui/v27/y83FW5AQ0Q-Xx3edxI4sY0SreQ2LeJlhvh_T-g.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Gujarati UI';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../fonts.gstatic.com/s/notosansgujaratiui/v27/y83IW5AQ0Q-Xx3edxI4sY0SreQ2LeJlhvh_rDghWpQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Gujarati UI';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts.gstatic.com/s/notosansgujaratiui/v27/y83IW5AQ0Q-Xx3edxI4sY0SreQ2LeJlhvh_rRg5WpQ.ttf) format('truetype');
+}

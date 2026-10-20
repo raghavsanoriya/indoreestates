@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Noto Sans Malayalam UI';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansmalayalamui/v41/EvO0zBJI1JU_RCx2mt4CWhlxQ9YxW2K7FG0smeFTIQ1lL6CwdfyebKAbfVIcTTAisNnyWmfeag.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Malayalam UI';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansmalayalamui/v41/EvO0zBJI1JU_RCx2mt4CWhlxQ9YxW2K7FG0smeFTIQ1lL6CwdfyebKAbfVIcTTAisNnyBGfeag.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Malayalam UI';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansmalayalamui/v41/EvO0zBJI1JU_RCx2mt4CWhlxQ9YxW2K7FG0smeFTIQ1lL6CwdfyebKAbfVIcTTAisNnyNmfeag.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Malayalam UI';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansmalayalamui/v41/EvO0zBJI1JU_RCx2mt4CWhlxQ9YxW2K7FG0smeFTIQ1lL6CwdfyebKAbfVIcTTAisNny42Deag.ttf) format('truetype');
+}

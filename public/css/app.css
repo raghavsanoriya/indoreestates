@@ -1,0 +1,25 @@
+/* Behaviour and data layouts only. The supplied theme owns colour, typography and page styling. */
+.preserve-lines{white-space:pre-line;overflow-wrap:anywhere}
+.listing-thumb{width:80px;height:68px;object-fit:cover;flex-shrink:0}
+.gallery-image-button{display:block;width:100%;padding:0;border:0;background:transparent}
+.gallery-image-button img{width:100%;object-fit:cover}
+#gallery-dialog{padding:12px;border:0;max-width:94vw;max-height:94vh}
+#gallery-dialog::backdrop{background:rgba(0,0,0,.8)}
+#gallery-dialog img{display:block;max-width:88vw;max-height:82vh;object-fit:contain}
+.gallery-close{display:block;margin:0 0 8px auto}
+.property-presentation-frame{width:100%;min-height:360px;border:0}
+.floor-display-image{display:block;max-width:100%;max-height:600px;object-fit:contain}
+.floor-details{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0}
+.property-form-section{scroll-margin-top:150px}
+.photo-tile img{width:100%;height:170px;object-fit:cover}
+.chart-box svg{display:block;width:100%;height:auto}
+.chart-label{fill:var(--gray-500);font-family:inherit;font-size:11px}
+.filter-sidebar .filter-body{padding:20px}
+.filter-sidebar .filter-head,.filter-sidebar .filter-footer{padding:20px}
+.filter-sidebar .filter-set{margin-bottom:20px}
+.property-card form{margin:0}
+.header .menu-login form{width:100%}
+.feature-location-section .location-item-two .location-img{aspect-ratio:1 / 1}
+.feature-location-section .location-item-two .location-img>a{display:block;width:100%;height:100%}
+.feature-location-section .location-item-two .location-img img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:575px){.listing-thumb{width:60px;height:54px}.property-presentation-frame{min-height:240px}}

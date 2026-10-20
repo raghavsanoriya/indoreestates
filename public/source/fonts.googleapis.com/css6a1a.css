@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Noto Sans Bengali UI';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansbengaliui/v39/mFTIWaYcw7bcsu1yQd7y0X1NtysW-vwClQQi5G89kSdEx2F5WilmspQvpOfFNV4j9NgoDvU.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Bengali UI';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansbengaliui/v39/mFTIWaYcw7bcsu1yQd7y0X1NtysW-vwClQQi5G89kSdEx2F5WilmspQvpOfFNV4j9IYoDvU.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Bengali UI';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansbengaliui/v39/mFTIWaYcw7bcsu1yQd7y0X1NtysW-vwClQQi5G89kSdEx2F5WilmspQvpOfFNV4j9LQoDvU.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans Bengali UI';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  src: url(../fonts.gstatic.com/s/notosansbengaliui/v39/mFTIWaYcw7bcsu1yQd7y0X1NtysW-vwClQQi5G89kSdEx2F5WilmspQvpOfFNV4j9GEvDvU.ttf) format('truetype');
+}

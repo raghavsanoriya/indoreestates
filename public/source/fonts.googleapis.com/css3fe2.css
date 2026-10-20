@@ -1,0 +1,17 @@
+/*
+ * See: https://fonts.google.com/license/googlerestricted
+ */
+@font-face {
+  font-family: 'YouTube Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubedisplay/v3/lW-pwj8dK3Xd92-ClMRhI7sbzFeQJcIU7pat6ITvV1ZZP6-9Cw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Display';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubedisplay/v3/lW-pwj8dK3Xd92-ClMRhI7sbzFeQJcIU7pat6ITvVzFZP6-9Cw.ttf) format('truetype');
+}

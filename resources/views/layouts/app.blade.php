@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head>@include('partials.head')</head>
+<body class="elementor-default elementor-kit-6 @yield('body-class')"><div class="main-wrapper">
+@include('partials.original-header')
+@hasSection('dashboard-content')@else @include('partials.notices')@endif
+<main id="main-content">@yield('content')</main>
+@hasSection('dashboard-content')
+<footer class="workspace-footer"><span>© {{ now()->year }} indoreestate. All rights reserved.</span><a href="{{ route('captured-page.show','privacy-policy.html') }}">Privacy</a></footer>
+@else
+@include('partials.original-footer')
+@endif
+</div>@include('partials.scripts')</body></html>

@@ -1,0 +1,419 @@
+/*
+ * See: https://fonts.google.com/license/googlerestricted
+ */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuaabWmT.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWubEbWmT.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWub2bWmT.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/roboto/v51/KFOMCnqEu92Fr1ME7kSn66aGLdTylUAMQXC89YmC2DPNWuYjammT.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwbHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4uwrHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: extra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4cwrHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7wwrHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: semi-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7JwrHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwrHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: semi-expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6HwrHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6cwrHOezRdAPDi_CNmLZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwbHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4uwrHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: extra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4cwrHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7wwrHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: semi-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7JwrHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwrHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: semi-expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6HwrHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6cwrHOezRdAPDi_CNmc5T_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwbHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4uwrHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: extra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4cwrHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7wwrHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: semi-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7JwrHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwrHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: semi-expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6HwrHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6cwrHOezRdAPDi_CNmQZT_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwbHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4uwrHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: extra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4cwrHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7wwrHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: semi-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7JwrHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwrHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: semi-expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6HwrHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6cwrHOezRdAPDi_CNmrZP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwbHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4uwrHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: extra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4cwrHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7wwrHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: semi-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7JwrHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwrHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: semi-expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6HwrHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6cwrHOezRdAPDi_CNmlJP_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwbHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: ultra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4uwrHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: extra-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP4cwrHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7wwrHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: semi-condensed;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP7JwrHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6uwrHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: semi-expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6HwrHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'YouTube Marquee Beta';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: expanded;
+  font-display: swap;
+  src: url(../fonts.gstatic.com/s/youtubemarqueebeta/v4/Y4HIYbZrVTASt-zIZqrNvxdaLTAjgv2NJyQLaU_CHWxzleibZBhpPwKrcwhcIO60XPi-fKlzVixfd8FaZP6cwrHOezRdAPDi_CNm85P_GQ.ttf) format('truetype');
+}
