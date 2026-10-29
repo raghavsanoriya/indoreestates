@@ -59,6 +59,9 @@ class DashboardController extends Controller
         if ($chartFrom->gt($chartTo)) {
             throw ValidationException::withMessages(['chart_to' => 'The end date must be on or after the start date.']);
         }
+        if ($period === 'day' && $chartFrom->diffInDays($chartTo) > 366) {
+            throw ValidationException::withMessages(['chart_from' => 'A daily chart can cover up to one year. Choose a shorter range or a weekly, monthly or yearly view.']);
+        }
         $chart = PropertyView::whereIn('property_id', (clone $listings)->select('id'))->whereBetween('day', [$chartFrom->toDateString(), $chartTo->toDateString()])->select('day')->selectRaw('sum(views) as total')->groupBy('day')->pluck('total', 'day');
         $cursor = match ($period) {
             'week' => $chartFrom->copy()->startOfWeek(),

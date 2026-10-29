@@ -6,7 +6,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -24,8 +26,9 @@ class ProfileController extends Controller
             'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'social_links' => ['nullable', 'array:facebook,twitter,linkedin'],
             'social_links.*' => ['nullable', 'url:http,https', 'max:255'],
-        ]);
-        unset($data['avatar']);
+            'current_password_for_email' => [Rule::requiredIf(fn () => $request->input('email') !== $request->user()->email), 'nullable', 'current_password'],
+        ], ['current_password_for_email.required' => 'Enter your current password to change your email address.']);
+        unset($data['avatar'], $data['current_password_for_email']);
         if ($request->hasFile('avatar')) {
             $data['avatar_path'] = $request->file('avatar')->store('avatars', 'local');
         }
@@ -36,8 +39,8 @@ class ProfileController extends Controller
 
     public function password(Request $request): RedirectResponse
     {
-        $data = $request->validate(['current_password' => ['required', 'current_password'], 'password' => ['required', 'string', 'min:8', 'confirmed']]);
-        $request->user()->update(['password' => Hash::make($data['password'])]);
+        $data = $request->validate(['current_password' => ['required', 'current_password'], 'password' => ['required', 'string', Password::defaults(), 'confirmed']]);
+        $request->user()->forceFill(['password' => Hash::make($data['password']), 'remember_token' => Str::random(60)])->save();
         $request->session()->regenerate();
 
         return back()->with('status', 'Password updated.');
