@@ -14,5 +14,5 @@
 <link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/uploads/elementor/css/post-19c8bb.css') }}">
 <link rel="stylesheet" href="{{ asset('css/homez-original.css') }}">
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<link rel="stylesheet" href="{{ asset('css/homez.css') }}">
+<link rel="stylesheet" href="{{ asset('css/homez.css') }}?v=20261030-price">
 @stack('styles')
