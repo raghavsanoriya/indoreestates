@@ -49,6 +49,14 @@
     .mobile-filter-toggle{display:flex;align-items:center;justify-content:space-between;min-height:48px;width:100%;padding:12px 16px;border:1px solid #e8e3df;border-radius:12px;background:#fff;color:#282522;font-size:14px;font-weight:500}
     .mobile-filter-toggle[aria-expanded=true]{margin-bottom:12px}
     .mobile-filters-collapsed{display:none}
+    .mobile-property-list-page .breadcrumb-bar{padding:18px 0}
+    .mobile-property-list-page .breadcrumb-title{font-size:24px;margin-bottom:6px}
+    .mobile-property-list-page .breadcrumb{margin-bottom:0;font-size:11px}
+    .mobile-property-list-page .content{padding-top:20px}
+    .mobile-property-list-page .search-item{margin-bottom:18px!important;background:transparent}
+    .mobile-property-list-page .search-item .card-body{padding:0}
+    .mobile-property-list-page .search-item .btn{min-height:44px;padding:10px 18px}
+    .mobile-property-list-page .search-item select{min-height:44px;padding:8px 12px;border:1px solid #e8e3df;border-radius:10px;background:#fff}
     .dashboard-page .workspace-sidebar-column{bottom:0}
     input,textarea,select{scroll-margin-bottom:var(--mobile-dock-space)}
     .mobile-property-detail-page{background:#f7f6f4;padding-bottom:calc(var(--mobile-dock-space) + 80px)}
@@ -77,7 +85,7 @@
     .mobile-detail-address .material-icons-outlined{font-size:18px;flex-shrink:0;margin-top:1px}
     .mobile-detail-price-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
     .mobile-detail-price-row strong{font-size:18px;color:#c34c3b;font-weight:600}
-    .mobile-detail-price-row>span{font-size:10px;color:#817972}
+    .mobile-detail-price-row>span{font-size:10px;color:#817972;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .mobile-detail-rating{display:flex;gap:10px;font-size:12px;margin-bottom:16px;color:#292724}
     .mobile-detail-rating span{color:#79736e;text-decoration:underline}
     .mobile-detail-facts{display:flex;gap:12px;padding:16px 0;border-top:1px solid #e9e4df;border-bottom:1px solid #e9e4df}
