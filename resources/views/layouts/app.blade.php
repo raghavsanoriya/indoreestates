@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head>@include('partials.head')
-<link rel="stylesheet" href="{{ asset('css/mobile-app.css') }}?v=20261030-5">
+<link rel="stylesheet" href="{{ asset('css/mobile-app.css') }}?v=20261030-6">
 </head>
 <body class="elementor-default elementor-kit-6 @yield('body-class')"><div class="main-wrapper">
 @include('partials.original-header')
