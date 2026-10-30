@@ -74,7 +74,7 @@ a{text-decoration:none}button,input,select,textarea{font-family:inherit}
 .o3-property-card .property-title a,.o3-property-card .property-location,.o3-property-card .property-price{color:#181a20!important}
 .o3-property-card .property-location{font-size:11px;line-height:1.5;max-width:230px}
 .o3-property-card .property-price{font-size:11px!important;line-height:1.5;white-space:nowrap!important;min-width:84px;padding:5px 7px!important}
-.o3-contact-price{color:#bd5847!important;font-size:11px;text-decoration:underline}
+.o3-contact-price{display:block;margin-top:6px;color:#bd5847!important;font-size:11px;text-decoration:underline}
 .o3-card-tags{display:flex;gap:6px;position:absolute;top:20px;left:20px;z-index:3;flex-wrap:wrap;right:20px}
 .o3-card-tags span{padding:4px 8px;background:#fff;border-radius:5px;color:#181a20;font-size:10px}
 .o3-property-card .action-item{z-index:4;right:20px!important;bottom:98px!important;gap:6px}
