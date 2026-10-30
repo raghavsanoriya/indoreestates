@@ -2,23 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\Cms;
 use Illuminate\Contracts\View\View;
 
 class CapturedPageController extends Controller
 {
-    public function show(string $page): View
-    {
-        $titles = [
-            'about-us.html' => 'About indoreestate',
-            'our-service.html' => 'Our Services',
-            'faq.html' => 'Frequently Asked Questions',
-            'privacy-policy.html' => 'Privacy Enquiries',
-            'pricing.html' => 'Listing Enquiries',
-            'blog.html' => 'Property Updates',
-            'blog-grid.html' => 'Property Updates',
-        ];
-        abort_unless(isset($titles[$page]), 404);
+    /** Public page addresses and the website content (config/cms.php) that fills them. */
+    private const PAGES = [
+        'about-us.html' => 'about',
+        'our-service.html' => 'services',
+        'faq.html' => 'faq',
+        'privacy-policy.html' => 'privacy',
+        'pricing.html' => 'pricing',
+        'blog.html' => 'blog',
+        'blog-grid.html' => 'blog',
+    ];
 
-        return view('static-page', ['page' => $page, 'title' => $titles[$page]]);
+    public function show(Cms $cms, string $page): View
+    {
+        abort_unless(isset(self::PAGES[$page]), 404);
+        $slug = self::PAGES[$page];
+
+        return view('static-page', ['page' => $page, 'slug' => $slug, 'title' => $cms->text("pages.$slug.title")]);
     }
 }

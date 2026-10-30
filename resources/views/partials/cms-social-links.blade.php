@@ -1,0 +1,2 @@
+@php($socialLinks = array_filter(['facebook' => 'Facebook', 'instagram' => 'Instagram', 'linkedin' => 'LinkedIn', 'youtube' => 'YouTube', 'x' => 'X'], fn (string $label, string $network): bool => $cms->text("social.$network") !== '', ARRAY_FILTER_USE_BOTH))
+@if($socialLinks)<div class="o3-footer-social d-flex flex-wrap gap-3 mt-3">@foreach($socialLinks as $network => $label)<a href="{{ $cms->text("social.$network") }}" target="_blank" rel="noopener">{{ $label }} ↗</a>@endforeach</div>@endif

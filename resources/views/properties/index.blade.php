@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('body-class', 'mobile-property-list-page')
+@section('title', $cms->pageTitle('properties'))
+@section('meta_description', $cms->pageDescription('properties'))
 @section('content')
 <div class="page-wrapper"><x-breadcrumb title="Properties in Indore"/>
 <div class="content"><div class="container"><div class="card border-0 search-item mb-4"><div class="card-body"><div class="row align-items-center"><div class="col-lg-6"><p class="mb-2 mb-lg-0">Showing {{ $properties->firstItem() ?? 0 }}–{{ $properties->lastItem() ?? 0 }} of <span class="result-value">{{ $properties->total() }}</span> properties</p></div><div class="col-lg-6"><form class="d-flex justify-content-lg-end align-items-center gap-2" method="get" action="{{ route('properties.index') }}">@foreach(request()->except(['sort','page']) as $key=>$value)@if(is_array($value))@foreach($value as $item)<input type="hidden" name="{{ $key }}[]" value="{{ $item }}">@endforeach @else<input type="hidden" name="{{ $key }}" value="{{ $value }}">@endif @endforeach<label for="sort">Sort By</label><select class="select" id="sort" name="sort" data-auto-submit><option value="newest" @selected(request('sort','newest')==='newest')>Newest</option><option value="price_asc" @selected(request('sort')==='price_asc')>Price: Low to high</option><option value="price_desc" @selected(request('sort')==='price_desc')>Price: High to low</option></select><button class="btn btn-primary">Apply</button></form></div></div></div></div>
