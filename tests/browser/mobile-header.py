@@ -55,6 +55,7 @@ def main():
                     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                     menu.click()
                     link = page.locator(".o3-has-submenu > a")
+                    assert link.evaluate("el => getComputedStyle(el).display") == "flex"
                     assert link.evaluate("el => getComputedStyle(el).alignItems") == "center"
                     assert link.evaluate("el => getComputedStyle(el).textDecorationLine") == "none"
                     if width == 390:
@@ -67,6 +68,8 @@ def main():
                     assert not page.locator(".mobile-header-profile").is_visible()
                 checks.append(f"Header alignment at {width}px")
             page.set_viewport_size({"width": 390, "height": 844})
+            page.evaluate("new Promise(requestAnimationFrame)")
+            page.locator(".o3-header").evaluate("el => Promise.all(el.getAnimations({subtree:true}).filter(a => a.effect.getTiming().iterations !== Infinity).map(a => a.finished.catch(() => {})))")
             page.locator(".o3-header").screenshot(path=str(output / "mobile-header-centred.png"))
             page.goto(args.base + "/properties", wait_until="networkidle")
             sort = page.locator("#sort")

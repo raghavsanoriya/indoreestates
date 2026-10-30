@@ -239,7 +239,7 @@
     body:not(.dashboard-page) .mobile-header-menu-icon{display:block;width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
     body:not(.dashboard-page) .mobile-header-profile{display:grid;place-items:center;grid-column:3;grid-row:1;justify-self:end;width:44px;height:44px;border-radius:50%;background:#f7f5f3;color:#282522;text-decoration:none}
     .mobile-header-profile svg{display:block;width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-    .o3-primary-nav a{display:flex;align-items:center;gap:8px;line-height:1.4;text-decoration:none!important}
+    .o3-primary-nav>li>a,.o3-has-submenu>ul a{display:flex;align-items:center;gap:8px;line-height:1.4;text-decoration:none!important}
     .o3-has-submenu>a>span{display:none}
     .o3-has-submenu>a::after{content:"";display:block;width:7px;height:7px;margin:0 0 4px 2px;border:solid currentColor;border-width:0 1.6px 1.6px 0;transform:rotate(45deg)}
     .o3-close-menu{display:grid;place-items:center;width:44px;height:44px;padding:0;line-height:1}
