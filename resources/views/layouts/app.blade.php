@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head>@include('partials.head')
-<link rel="stylesheet" href="{{ asset('css/mobile-app.css') }}?v=20261030-4">
+<link rel="stylesheet" href="{{ asset('css/mobile-app.css') }}?v=20261030-5">
 </head>
 <body class="elementor-default elementor-kit-6 @yield('body-class')"><div class="main-wrapper">
 @include('partials.original-header')
@@ -13,5 +13,5 @@
 @endif
 </div>@include('partials.mobile-navigation')
 @include('partials.scripts')
-<script src="{{ asset('js/mobile-app.js') }}?v=20261030" defer></script>
+<script src="{{ asset('js/mobile-app.js') }}?v=20261030-2" defer></script>
 </body></html>

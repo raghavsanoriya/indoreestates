@@ -98,17 +98,103 @@
         toggle.textContent = 'Search & filters  +';
         filters.id ||= 'mobile-property-filters';
         toggle.setAttribute('aria-controls', filters.id);
+        toggle.setAttribute('aria-haspopup', 'dialog');
         toggle.setAttribute('aria-expanded', 'false');
-        const syncFilters = () => filters.classList.toggle('mobile-filters-collapsed', phone.matches && toggle.getAttribute('aria-expanded') !== 'true');
-        toggle.addEventListener('click', () => {
-            const open = toggle.getAttribute('aria-expanded') !== 'true';
+        const anchor = document.createComment('Desktop filter sidebar');
+        const sheet = document.createElement('dialog');
+        sheet.className = 'mobile-filter-dialog';
+        sheet.id = 'mobile-filter-sheet';
+        toggle.setAttribute('aria-controls', sheet.id);
+        const heading = filters.querySelector('.filter-head h5');
+        heading.id ||= 'mobile-filter-title';
+        sheet.setAttribute('aria-labelledby', heading.id);
+        const closeButton = document.createElement('button');
+        closeButton.type = 'button';
+        closeButton.className = 'mobile-filter-close';
+        closeButton.setAttribute('aria-label', 'Close filters');
+        closeButton.textContent = '×';
+        heading.parentElement.append(closeButton);
+        const setOpenState = open => {
             toggle.setAttribute('aria-expanded', String(open));
-            toggle.textContent = open ? 'Search & filters  −' : 'Search & filters  +';
-            syncFilters();
+            document.body.classList.toggle('mobile-filters-open', open);
+        };
+        toggle.addEventListener('click', () => {
+            if (!phone.matches) return;
+            sheet.showModal();
+            setOpenState(true);
+            closeButton.focus({preventScroll: true});
         });
-        filters.before(toggle);
+        closeButton.addEventListener('click', () => sheet.close());
+        sheet.addEventListener('close', () => {
+            setOpenState(false);
+            if (phone.matches) toggle.focus({preventScroll: true});
+        });
+        sheet.addEventListener('click', event => {
+            if (event.target !== sheet) return;
+            const box = sheet.getBoundingClientRect();
+            if (event.clientY < box.top || event.clientY > box.bottom || event.clientX < box.left || event.clientX > box.right) sheet.close();
+        });
+        const syncFilters = () => {
+            if (phone.matches) {
+                sheet.append(filters);
+            } else {
+                if (sheet.open) sheet.close();
+                setOpenState(false);
+                anchor.after(filters);
+            }
+        };
+        filters.before(toggle, anchor);
+        document.body.append(sheet);
         phone.addEventListener('change', syncFilters);
         syncFilters();
+    }
+    const propertyForm = document.getElementById('add-property-form');
+    if (propertyForm) {
+        const sections = Array.from(propertyForm.querySelectorAll('.property-form-section'));
+        const setSectionOpen = (section, open) => {
+            section.classList.toggle('is-open', open);
+            section.querySelector('.mobile-section-toggle')?.setAttribute('aria-expanded', String(open));
+        };
+        const openSection = section => {
+            if (!phone.matches) return;
+            sections.forEach(item => setSectionOpen(item, item === section));
+        };
+        sections.forEach((section, index) => {
+            const row = section.querySelector(':scope > .row');
+            const heading = row?.querySelector('h6');
+            if (!row || !heading) return;
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'mobile-section-toggle';
+            button.textContent = `${index + 1}. ${heading.textContent}`;
+            button.setAttribute('aria-label', button.textContent);
+            row.id ||= `${section.id}-fields`;
+            button.setAttribute('aria-controls', row.id);
+            button.addEventListener('click', () => {
+                if (section.classList.contains('is-open')) setSectionOpen(section, false);
+                else openSection(section);
+            });
+            section.prepend(button);
+            section.classList.add('mobile-property-section');
+            setSectionOpen(section, index === 0 || Boolean(section.querySelector('.text-danger.mt-1')));
+        });
+        document.querySelectorAll('.add-tab-list a').forEach(link => link.addEventListener('click', () => {
+            const section = sections.find(item => `#${item.id}` === link.hash);
+            if (section) openSection(section);
+        }));
+        propertyForm.addEventListener('invalid', event => {
+            if (!phone.matches) return;
+            const section = event.target.closest('.property-form-section');
+            if (section) setSectionOpen(section, true);
+        }, true);
+        const syncForm = () => {
+            if (phone.matches) {
+                const hashSection = sections.find(section => `#${section.id}` === window.location.hash);
+                if (hashSection) openSection(hashSection);
+            }
+        };
+        phone.addEventListener('change', syncForm);
+        syncForm();
     }
     const navigation = document.getElementById('site-navigation');
     const trigger = document.getElementById('mobile_btn');
