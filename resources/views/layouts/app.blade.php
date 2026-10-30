@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="en"><head>@include('partials.head')</head>
+<html lang="en"><head>@include('partials.head')
+<link rel="stylesheet" href="{{ asset('css/mobile-app.css') }}?v=20261030">
+</head>
 <body class="elementor-default elementor-kit-6 @yield('body-class')"><div class="main-wrapper">
 @include('partials.original-header')
 @hasSection('dashboard-content')@else @include('partials.notices')@endif
@@ -9,4 +11,7 @@
 @else
 @include('partials.original-footer')
 @endif
-</div>@include('partials.scripts')</body></html>
+</div>@include('partials.mobile-navigation')
+@include('partials.scripts')
+<script src="{{ asset('js/mobile-app.js') }}?v=20261030" defer></script>
+</body></html>
