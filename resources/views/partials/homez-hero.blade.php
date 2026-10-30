@@ -1,29 +1,24 @@
 <section class="elementor-section elementor-top-section elementor-element elementor-element-d30cad4 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d30cad4" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-no">
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8ab0a71" data-id="8ab0a71" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
+			<div class="elementor-widget-wrap elementor-element-populated" @if($cms->isCustom('home.hero.image')) style="background-image:url('{{ $cms->image('home.hero.image') }}')" @endif>
 								<section class="elementor-section elementor-inner-section elementor-element elementor-element-d0d2313 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d0d2313" data-element_type="section">
 						<div class="elementor-container elementor-column-gap-extended">
 					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-7277940" data-id="7277940" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
 								<div class="elementor-element elementor-element-f1be2bc elementor-widget__width-initial  elementor-widget elementor-widget-heading" data-id="f1be2bc" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
-			<h1 class="elementor-heading-title elementor-size-default">Easy Way to Find a
-Perfect Property</h1>		</div>
+			<h1 class="elementor-heading-title elementor-size-default">{{ $cms->text('home.hero.title') }}</h1>		</div>
 				</div>
 				<div class="elementor-element elementor-element-847d62b  elementor-widget elementor-widget-text-editor" data-id="847d62b" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-							Explore homes, land and commercial properties in Indore.						</div>
+							{{ $cms->text('home.hero.subtitle') }}						</div>
 				</div>
 					</div>
 		</div>
 				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-7ae3fca" data-id="7ae3fca" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
-								<div class="elementor-element elementor-element-c2c8dda elementor-widget__width-auto  elementor-widget elementor-widget-apus_element_popup_video" data-id="c2c8dda" data-element_type="widget" data-widget_type="apus_element_popup_video.default"><div class="elementor-widget-container"><div class="widget-video"><div class="video-wrapper-inner"><a class="d-flex align-items-center style2 o3-hero-explore" href="{{ route('properties.index') }}"><h2 class="title-video">Explore Properties</h2><span class="popup-video-inner d-flex align-items-center justify-content-center"><i class="flaticon-up-right-arrow" aria-hidden="true"></i></span></a></div></div></div></div>
-				<div class="elementor-element elementor-element-d055504 elementor-widget__width-auto elementor-absolute elementor-hidden-mobile  elementor-widget elementor-widget-image" data-id="d055504" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-															<img decoding="async" width="140" height="120" src="{{ asset('source/demoapus1.com/homez/wp-content/uploads/2022/11/round-text.png') }}" class="attachment-full size-full wp-image-606" alt="">															</div>
-				</div>
+								<div class="elementor-element elementor-element-c2c8dda elementor-widget__width-auto  elementor-widget elementor-widget-apus_element_popup_video" data-id="c2c8dda" data-element_type="widget" data-widget_type="apus_element_popup_video.default"><div class="elementor-widget-container"><div class="widget-video"><div class="video-wrapper-inner"><a class="d-flex align-items-center style2 o3-hero-explore" href="{{ route('properties.index') }}"><h2 class="title-video">{{ $cms->text('home.hero.button') }}</h2><span class="popup-video-inner d-flex align-items-center justify-content-center"><i class="flaticon-up-right-arrow" aria-hidden="true"></i></span></a></div></div></div></div>
 				<div class="elementor-element elementor-element-047b0b9 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-mobile  elementor-widget elementor-widget-image" data-id="047b0b9" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
 															<img decoding="async" width="160" height="103" src="{{ asset('source/demoapus1.com/homez/wp-content/uploads/2022/11/h45.png') }}" class="attachment-full size-full wp-image-613" alt="">															</div>

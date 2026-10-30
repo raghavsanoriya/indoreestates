@@ -12,6 +12,7 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\WebsiteContentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PropertyController::class, 'home'])->name('home');
@@ -65,6 +66,10 @@ Route::middleware('auth')->group(function (): void {
     Route::patch('/dashboard/users/{user}', [AdminController::class, 'role'])->name('admin.role');
     Route::get('/dashboard/inbox', [AdminController::class, 'inbox'])->name('admin.inbox');
     Route::patch('/dashboard/inbox/{contact}', [AdminController::class, 'handled'])->name('admin.handled');
+    Route::get('/dashboard/website/{section?}', [WebsiteContentController::class, 'edit'])->where('section', '[a-z]+')->name('website.edit');
+    Route::put('/dashboard/website/{section}', [WebsiteContentController::class, 'update'])->where('section', '[a-z]+')->name('website.update');
+    Route::delete('/dashboard/website/content/{key}', [WebsiteContentController::class, 'reset'])->where('key', '[a-z0-9_.]+')->name('website.reset');
+    Route::post('/dashboard/website/content/{key}/undo', [WebsiteContentController::class, 'undo'])->where('key', '[a-z0-9_.]+')->name('website.undo');
 });
 foreach ([
     'index.html' => '/', 'index-2.html' => '/', 'index-3.html' => '/',

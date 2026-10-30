@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\User;
+use App\Support\Cms;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -14,11 +15,15 @@ use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register(): void {}
+    public function register(): void
+    {
+        $this->app->singleton(Cms::class);
+    }
 
     public function boot(): void
     {
         Paginator::useBootstrapFive();
+        View::share('cms', $this->app->make(Cms::class));
         View::composer(['properties.home', 'properties.index', 'properties.show', 'dashboard.favorites'], function ($view): void {
             $view->with('savedPropertyIds', request()->user()?->favorites()->pluck('properties.id')->all() ?? []);
         });

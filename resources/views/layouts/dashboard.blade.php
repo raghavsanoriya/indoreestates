@@ -16,6 +16,7 @@
         request()->routeIs('profile.*') => 'My Profile',
         request()->routeIs('admin.users') => 'User Access',
         request()->routeIs('admin.inbox') => 'Contacts & Subscribers',
+        request()->routeIs('website.*') => 'Website Content',
         default => 'Dashboard',
     };
 @endphp
@@ -31,6 +32,7 @@
 @endif
 @if(auth()->user()->isAdmin())
 <p class="workspace-nav-label">ADMINISTRATION</p><a href="{{ route('admin.users') }}" @class(['workspace-nav-link','is-active'=>request()->routeIs('admin.users')]) @if(request()->routeIs('admin.users')) aria-current="page" @endif><span class="material-icons-outlined" aria-hidden="true">group</span>User Access</a><a href="{{ route('admin.inbox') }}" @class(['workspace-nav-link','is-active'=>request()->routeIs('admin.inbox')]) @if(request()->routeIs('admin.inbox')) aria-current="page" @endif><span class="material-icons-outlined" aria-hidden="true">inbox</span>Contacts & Subscribers</a>
+<a href="{{ route('website.edit') }}" @class(['workspace-nav-link','is-active'=>request()->routeIs('website.*')]) @if(request()->routeIs('website.*')) aria-current="page" @endif><span class="material-icons-outlined" aria-hidden="true">web</span>Website Content</a>
 @endif
 <form action="{{ route('logout') }}" method="post">@csrf<button class="workspace-nav-link workspace-signout"><span class="material-icons-outlined" aria-hidden="true">logout</span>Sign Out</button></form>
 </nav><a class="workspace-site-link" href="{{ route('home') }}"><span class="material-icons-outlined" aria-hidden="true">open_in_new</span>View your website<span aria-hidden="true">↗</span></a></div>
