@@ -23,3 +23,7 @@
 .feature-location-section .location-item-two .location-img>a{display:block;width:100%;height:100%}
 .feature-location-section .location-item-two .location-img img{display:block;width:100%;height:100%;object-fit:cover}
 @media(max-width:575px){.listing-thumb{width:60px;height:54px}.property-presentation-frame{min-height:240px}}
+
+/* reCAPTCHA checkbox inside the compact footer newsletter form */
+.o3-newsletter{flex-wrap:wrap}
+.o3-newsletter .o3-newsletter-recaptcha{flex-basis:100%;margin:4px 0 6px!important}

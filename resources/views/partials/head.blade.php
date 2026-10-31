@@ -13,6 +13,6 @@
 <link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/themes/homez/style5152.css') }}">
 <link rel="stylesheet" href="{{ asset('source/demoapus1.com/homez/wp-content/uploads/elementor/css/post-19c8bb.css') }}">
 <link rel="stylesheet" href="{{ asset('css/homez-original.css') }}">
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}?v=20261031">
 <link rel="stylesheet" href="{{ asset('css/homez.css') }}?v=20261030-contact">
 @stack('styles')

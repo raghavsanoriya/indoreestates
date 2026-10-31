@@ -79,7 +79,7 @@ class ListingController extends Controller
         $stored = [];
         try {
             DB::transaction(function () use ($request, $property, &$stored): void {
-                $property->fill($request->safe()->except(['intent', 'amenities', 'photos', 'remove_photos', 'photo_order', 'cover_photo', 'presentation', 'presentation_files']));
+                $property->fill($request->safe()->except(['intent', 'amenities', 'photos', 'remove_photos', 'photo_order', 'cover_photo', 'presentation', 'presentation_files', 'g-recaptcha-response']));
                 PropertyPresentation::save($request, $property, $stored);
                 $property->status = $request->input('intent') === 'submit' ? 'pending' : 'draft';
                 $property->rejection_reason = null;
