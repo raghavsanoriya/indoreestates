@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Conversation;
 use App\Models\Property;
+use App\Rules\Recaptcha;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class ConversationController extends Controller
     {
         abort_unless($property->isPublic(), 404);
         abort_if($request->user()->id === $property->user_id, 403, 'You cannot inquire about your own property.');
-        $data = $request->validate(['body' => ['required', 'string', 'max:5000']]);
+        $data = $request->validate(['body' => ['required', 'string', 'max:5000'], 'g-recaptcha-response' => [new Recaptcha]]);
         $conversation = DB::transaction(function () use ($request, $property, $data): Conversation {
             $conversation = Conversation::firstOrCreate(['property_id' => $property->id, 'customer_id' => $request->user()->id], ['agent_id' => $property->user_id]);
             $conversation->messages()->create(['user_id' => $request->user()->id, 'body' => $data['body']]);

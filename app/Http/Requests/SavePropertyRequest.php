@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Property;
+use App\Rules\Recaptcha;
 use App\Support\PropertyPresentation;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
@@ -20,7 +21,7 @@ class SavePropertyRequest extends FormRequest
     {
         $measurementPresence = $this->route('property')?->source_key ? 'nullable' : 'required';
 
-        return [
+        return ($this->route('property') ? [] : ['g-recaptcha-response' => [new Recaptcha]]) + [
             'title' => ['required', 'string', 'max:200'], 'description' => ['required', 'string', 'max:20000'],
             'address' => ['required', 'string', 'max:255'], 'location' => ['required', 'string', 'max:100'],
             'state' => ['nullable', 'string', 'max:100'], 'country' => ['required', 'string', 'max:100'],

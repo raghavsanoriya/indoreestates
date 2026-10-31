@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Rules\Recaptcha;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -38,8 +40,9 @@ class AuthController extends Controller
 
     public function login(Request $request): RedirectResponse
     {
-        $data = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string']]);
-        if (! Auth::attempt($data, $request->boolean('remember'))) {
+        // A Google outage must not lock admins out, so login alone lets an unreachable check through.
+        $data = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string'], 'g-recaptcha-response' => [new Recaptcha(allowWhenUnavailable: true)]]);
+        if (! Auth::attempt(Arr::only($data, ['email', 'password']), $request->boolean('remember'))) {
             throw ValidationException::withMessages(['email' => 'The email or password is incorrect.']);
         }
         $request->session()->regenerate();
@@ -49,8 +52,8 @@ class AuthController extends Controller
 
     public function register(Request $request): RedirectResponse
     {
-        $data = $request->validate(['name' => ['required', 'string', 'max:120'], 'email' => ['required', 'email', 'max:255', 'unique:users'], 'password' => ['required', 'string', PasswordRule::defaults(), 'confirmed']]);
-        $user = User::create($data);
+        $data = $request->validate(['name' => ['required', 'string', 'max:120'], 'email' => ['required', 'email', 'max:255', 'unique:users'], 'password' => ['required', 'string', PasswordRule::defaults(), 'confirmed'], 'g-recaptcha-response' => [new Recaptcha]]);
+        $user = User::create(Arr::only($data, ['name', 'email', 'password']));
         Auth::login($user);
         $request->session()->regenerate();
 
@@ -68,8 +71,8 @@ class AuthController extends Controller
 
     public function forgot(Request $request): RedirectResponse
     {
-        $data = $request->validate(['email' => ['required', 'email']]);
-        Password::sendResetLink($data);
+        $data = $request->validate(['email' => ['required', 'email'], 'g-recaptcha-response' => [new Recaptcha]]);
+        Password::sendResetLink(Arr::only($data, ['email']));
 
         return back()->with('status', 'If this email has an account, a reset link has been sent. Local email delivery is written to the application mail log.');
     }
