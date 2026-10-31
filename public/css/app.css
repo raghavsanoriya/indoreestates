@@ -27,3 +27,31 @@
 /* reCAPTCHA checkbox inside the compact footer newsletter form */
 .o3-newsletter{flex-wrap:wrap}
 .o3-newsletter .o3-newsletter-recaptcha{flex-basis:100%;margin:4px 0 6px!important}
+
+/* Properties page (desktop): filters stay in view while the listings scroll, in a compact panel.
+   Phones keep the mobile filter sheet from mobile-app.css. */
+@media(min-width:992px){
+.property-filter-column{position:sticky;top:20px;align-self:flex-start;z-index:2}
+.property-filter-column .filter-sidebar{display:flex;flex-direction:column;max-height:calc(100vh - 40px);overflow:hidden}
+.property-filter-column .filter-head{flex-shrink:0;padding:12px 16px;border-bottom:1px solid #f0ece9}
+.property-filter-column .filter-head h5{font-size:17px;line-height:1.3;margin:0}
+.property-filter-column .filter-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:12px 16px;scrollbar-width:thin}
+.property-filter-column .filter-set{margin-bottom:12px}
+.property-filter-column .filter-set:last-child{margin-bottom:0}
+.property-filter-column .filter-body .mb-3{margin-bottom:8px!important}
+.property-filter-column .form-label{display:block;font-size:12.5px;line-height:1.35;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.property-filter-column .form-control{height:36px;min-height:36px;padding:4px 10px;font-size:14px;line-height:1.4}
+.property-filter-column .filter-body .row{--bs-gutter-x:10px}
+.property-filter-column .filter-set h6{font-size:14px;margin-bottom:8px}
+.property-filter-column .filter-set .form-check{display:inline-flex;width:50%;margin-bottom:6px!important;font-size:13px}
+.property-filter-column .filter-footer{flex-shrink:0;padding:10px 16px;border-top:1px solid #f0ece9;background:#fff}
+.property-filter-column .filter-footer .btn{flex:1;min-height:38px;padding:5px 12px}
+}
+/* Collapsible amenities list in the property filters (all screen sizes) */
+.filter-amenities summary{display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;padding:6px 0}
+.filter-amenities summary::-webkit-details-marker{display:none}
+.filter-amenities summary::after{content:"expand_more";font-family:"Material Icons Outlined";font-size:20px;margin-left:auto;transition:transform .2s}
+.filter-amenities[open] summary::after{transform:rotate(180deg)}
+.filter-amenities summary h6{margin:0}
+.filter-amenities-count{font-size:12px;color:#a84938;background:#fff0eb;border-radius:999px;padding:2px 8px}
+.filter-amenities-list{padding-top:8px}
